@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,193 @@
   <link rel="stylesheet" href="css/media.css">
   <title>Мангарид</title>
 </head>
+
 <body class="page">
   <header class="header">
-    <div class="container">
-      <nav class="nav"></nav>
+    <div class="container header__container">
+      <a href="" class="logo header__logo">Мангарид</a>
+      <nav class="nav">
+        <ul class="nav__list list-reset">
+          <li class="nav__item"><a href="#" class="nav__link">Каталог</a></li>
+          <li class="nav__item"><button class="header__search" href="/">Поиск</button></li>
+          <li class="nav__item"><a href="#" class="nav__link">Форум</a></li>
+        </ul>
+      </nav>
+      <div class="header__auth">
+        <!-- <svg class="svg-inline--fa fa-right-to-bracket" aria-hidden="true" focusable="false" data-prefix="fas"
+          data-icon="right-to-bracket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path class="" fill="currentColor"
+            d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z">
+          </path>
+        </svg> -->
+        <a class="sign_in" href="">Войти</a>
+
+        <!-- <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+          class="icon">
+          <path
+            d="M678.3 642.4c24.2-13 51.9-20.4 81.4-20.4h.1c3 0 4.4-3.6 2.2-5.6a371.67 371.67 0 0 0-103.7-65.8c-.4-.2-.8-.3-1.2-.5C719.2 505 759.6 431.7 759.6 349c0-137-110.8-248-247.5-248S264.7 212 264.7 349c0 82.7 40.4 156 102.6 201.1-.4.2-.8.3-1.2.5-44.7 18.9-84.8 46-119.3 80.6a373.42 373.42 0 0 0-80.4 119.5A373.6 373.6 0 0 0 137 888.8a8 8 0 0 0 8 8.2h59.9c4.3 0 7.9-3.5 8-7.8 2-77.2 32.9-149.5 87.6-204.3C357 628.2 432.2 597 512.2 597c56.7 0 111.1 15.7 158 45.1a8.1 8.1 0 0 0 8.1.3zM512.2 521c-45.8 0-88.9-17.9-121.4-50.4A171.2 171.2 0 0 1 340.5 349c0-45.9 17.9-89.1 50.3-121.6S466.3 177 512.2 177s88.9 17.9 121.4 50.4A171.2 171.2 0 0 1 683.9 349c0 45.9-17.9 89.1-50.3 121.6C601.1 503.1 558 521 512.2 521zM880 759h-84v-84c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v84h-84c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h84v84c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-84h84c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8z" />
+        </svg> -->
+        <a href="sign_up">Регистрация</a>
+      </div>
     </div>
   </header>
   <main class="main">
-    <section>
+    <section class="hero">
       <div class="container">
+        <h1 class="hero__title">Ханако-кун живет в туалете</h1>
+        <div class="hero__grid2">
+          <div class="hero__gridarticle">
+            <article class="hero__article">
+              <img
+                src="https://shikimori.one/uploads/poster/mangas/105084/main_2x-dbbb68ce750285a2c61d299179f35e06.webp">
+            </article>
+            <div>
+              <p class="text">а тут рейтинг</p>
+            </div>
+            <div>
+              <p class="text">а тут автор</p>
+            </div>
+          </div>
 
+          <div class="hero__section">
+
+            <ul class="hero__list list-reset">
+              <li class="hero__item">
+                <h2 class="second-title hero__itemtitle">Информация</h2>
+              </li>
+              <li class="hero__item hero__item--descr">
+                <h2 class="second-title hero__itemtitle">Описание</h2>
+                <p class="texts">Академия Камомэ полнится слухами о потусторонних явлениях, происходящих в школе. Всё
+                  это настолько будоражит учеников, что эти явления даже получают название — «Семь тайн». Самой
+                  перспективной из них считается легенда о девочке-призраке Ханако, обитающей в туалетной комнате на
+                  третьем этаже старого школьного корпуса, ведь она может исполнить любое желание того, кто её призовёт.
+                  Ученица первого курса старшей школы Нэнэ Ясиро настолько отчаялась в исполнении своей мечты, что
+                  решается на риск и отправляется за помощью к призраку. На такие крайние меры Нэнэ толкает жажда любви,
+                  ведь идеальный сэмпай, в которого она влюблена, даже не знает о её существовании.
+                  Нэнэ ждала всего чего угодно, но и представить не могла, что откликнувшаяся на её призыв Ханако
+                  окажется мальчиком!</p>
+              </li>
+              <li class="hero__item">
+                <div class="manga-stats">
+                  <div class="stats-block">
+
+                    <div class="stats-section">
+                      <h3 class="stats-title">Статистика</h3>
+
+                      <div class="stats-section-header">
+                        <span class="stats-section-title">Оценки</span>
+                        <span class="stats-section-value" id="average-rating">8.78</span>
+                      </div>
+
+                      <div class="rating-distribution">
+                        <div class="rating-row">
+                          <span class="rating-star">10 ★</span>
+                          <div class="rating-progress">
+                            <div class="progress-bar" style="width: 42.5%; background: #4CAF50;"></div>
+                          </div>
+                          <span class="rating-count">1.2K</span>
+                        </div>
+                        <div class="rating-row">
+                          <span class="rating-star">9 ★</span>
+                          <div class="rating-progress">
+                            <div class="progress-bar" style="width: 28.3%; background: #8BC34A;"></div>
+                          </div>
+                          <span class="rating-count">798</span>
+                        </div>
+                        <div class="rating-row">
+                          <span class="rating-star">8 ★</span>
+                          <div class="rating-progress">
+                            <div class="progress-bar" style="width: 15.7%; background: #FFC107;"></div>
+                          </div>
+                          <span class="rating-count">442</span>
+                        </div>
+                        <div class="rating-row">
+                          <span class="rating-star">7 ★</span>
+                          <div class="rating-progress">
+                            <div class="progress-bar" style="width: 8.2%; background: #FF9800;"></div>
+                          </div>
+                          <span class="rating-count">231</span>
+                        </div>
+                        <div class="rating-row">
+                          <span class="rating-star">6 ★</span>
+                          <div class="rating-progress">
+                            <div class="progress-bar" style="width: 3.1%; background: #FF5722;"></div>
+                          </div>
+                          <span class="rating-count">87</span>
+                        </div>
+                        <div class="rating-row">
+                          <span class="rating-star">5 ★</span>
+                          <div class="rating-progress">
+                            <div class="progress-bar" style="width: 2.2%; background: #F44336;"></div>
+                          </div>
+                          <span class="rating-count">62</span>
+                        </div>
+                      </div>
+
+                      <div class="stats-total">
+                        <span>Всего оценок:</span>
+                        <strong id="total-ratings">2,820</strong>
+                      </div>
+                    </div>
+
+                    <div class="stats-section">
+                      <div class="stats-section-header">
+                        <h3 class="stats-title">Статистика</h3>
+                      </div>
+
+                      <div class="lists-distribution">
+                        <div class="list-row">
+                          <span class="list-name">Читают</span>
+                          <div class="list-progress">
+                            <div class="progress-bar" style="width: 65%; background: #3498db;"></div>
+                          </div>
+                          <span class="list-count">18.7K</span>
+                        </div>
+                        <div class="list-row">
+                          <span class="list-name">В планах</span>
+                          <div class="list-progress">
+                            <div class="progress-bar" style="width: 22%; background: #9b59b6;"></div>
+                          </div>
+                          <span class="list-count">6.3K</span>
+                        </div>
+                        <div class="list-row">
+                          <span class="list-name">Прочитано</span>
+                          <div class="list-progress">
+                            <div class="progress-bar" style="width: 10%; background: #2ecc71;"></div>
+                          </div>
+                          <span class="list-count">2.9K</span>
+                        </div>
+                        <div class="list-row">
+                          <span class="list-name">Отложено</span>
+                          <div class="list-progress">
+                            <div class="progress-bar" style="width: 2%; background: #e74c3c;"></div>
+                          </div>
+                          <span class="list-count">574</span>
+                        </div>
+                        <div class="list-row">
+                          <span class="list-name">Брошено</span>
+                          <div class="list-progress">
+                            <div class="progress-bar" style="width: 1%; background: #95a5a6;"></div>
+                          </div>
+                          <span class="list-count">287</span>
+                        </div>
+                      </div>
+
+                      <div class="stats-total">
+                        <span>Всего в списках:</span>
+                        <strong id="total-lists">28,850</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
+
   </main>
 </body>
+
 </html>
