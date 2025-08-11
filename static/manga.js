@@ -1,45 +1,57 @@
 async function loadMangaData() {
-  try {
-    // Получаем ID манги из URL
-    const pathParts = window.location.pathname.split('/');
-    const mangaId = pathParts[pathParts.length - 1] || '121209';
-    console.log(mangaId)
+    // Получаем параметр name из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams)
+    const mangaName = urlParams.get('id');
+    console.log(mangaName)
 
-    // Загружаем основные данные
-    fetch(`http://127.0.0.1:8000/manga/${mangaId}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) {
-        document.getElementById("manga-title").textContent = "Not found";
-      } else {
-        document.getElementById("manga-title").textContent = data.title;
-      }
-    })
+    // if (!mangaName) {
+    //     // Если параметр не передан, перенаправляем на главную
+    //     window.location.href = '/againn/index.html';
+    //     return;
+    // }
 
-    // Заполняем основную информацию
-    // updateMangaInfo(mangaData);
+    // Загружаем данные о манге с бэкенда
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/manga/id/${mangaName}`);
+        if (!response.ok) throw new Error('Манга не найдена');
 
-    // // Загружаем дополнительные данные параллельно
-    // const [statsData, chaptersData] = await Promise.all([
-    //   fetch(`/api/manga/${mangaId}/stats`).then(res => res.ok ? res.json() : null),
-    //   fetch(`/api/manga/${mangaId}/chapters`).then(res => res.ok ? res.json() : null)
-    // ]);
-
-    // // Обновляем статистику и главы
-    // if (statsData) updateStats(statsData);
-    // if (chaptersData) updateChapters(chaptersData);
-
-  } catch (error) {
-    console.error('Error:', error);
-    showError();
-  }
+        const mangaData = await response.json();
+        console.log(mangaData)
+        renderMangaPage(mangaData);
+    } catch (error) {
+        console.error('Ошибка загрузки:', error);
+        document.getElementById('content').innerHTML = `
+            <div class="error">
+                <h2>Ошибка загрузки манги</h2>
+                <p>${error.message}</p>
+                <a href="/frontend/index.html">Вернуться в каталог</a>
+            </div>
+        `;
+    }
 }
 
+function renderMangaPage(manga) {
+    // document.title = `${manga.title} | Ваш сайт`;
+
+    document.getElementById('manga-name').innerHTML = manga.name
+
+    document.getElementById('manga-description').innerHTML = manga.description
 
 
+
+    document.getElementById('manga-info').innerHTML = `
+        <p class="text">Тип: &#160 манга</p>
+        <p class="text">Статус: &#160 ${manga.status}</p>
+        <p class="text">Теги: &#160 ${manga.tags}</p>
+        <p class="text">Кол-во томов: &#160 ${manga.volume_size}</p>
+        <p class="text">Кол-во глав: &#160 ${manga.chapter_size}</p>
+`;
+}
 document.addEventListener('DOMContentLoaded', () => {
   loadMangaData();
 });
+
 
 
 
