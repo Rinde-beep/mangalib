@@ -25,7 +25,7 @@ async function loadMangaData() {
             <div class="error">
                 <h2>Ошибка загрузки манги</h2>
                 <p>${error.message}</p>
-                <a href="/frontend/index.html">Вернуться в каталог</a>
+                <a href="http://127.0.0.1:5501/static/catalog.html">Вернуться в каталог</a>
             </div>
         `;
     }
