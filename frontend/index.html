@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/media.css">
+  <script defer src="./main1.js"></script>
   <title>Мангарид</title>
 </head>
 
@@ -50,20 +51,28 @@
                 src="https://shikimori.one/uploads/poster/mangas/105084/main_2x-dbbb68ce750285a2c61d299179f35e06.webp">
             </article>
             <div>
-              <p class="text">а тут рейтинг</p>
+              <p class="text">Оценить</p>
             </div>
             <div>
-              <p class="text">а тут автор</p>
+              <p class="text">Добавить в список</p>
             </div>
           </div>
 
           <div class="hero__section">
 
             <ul class="hero__list list-reset">
-              <li class="hero__item">
+              <li class="hero__item boxes">
                 <h2 class="second-title hero__itemtitle">Информация</h2>
               </li>
-              <li class="hero__item hero__item--descr">
+              <li class="hero__item">
+                <div class="boxes">
+                  <h2 class="second-title hero__itemtitle">Рейтинг</h2>
+                </div>
+                <div class="boxes">
+                  <h2 class="second-title hero__itemtitle">Автор</h2>
+                </div>
+              </li>
+              <li class="hero__item hero__item--descr boxes">
                 <h2 class="second-title hero__itemtitle">Описание</h2>
                 <p class="texts">Академия Камомэ полнится слухами о потусторонних явлениях, происходящих в школе. Всё
                   это настолько будоражит учеников, что эти явления даже получают название — «Семь тайн». Самой
@@ -75,124 +84,86 @@
                   Нэнэ ждала всего чего угодно, но и представить не могла, что откликнувшаяся на её призыв Ханако
                   окажется мальчиком!</p>
               </li>
-              <li class="hero__item">
-                <div class="manga-stats">
-                  <div class="stats-block">
-
-                    <div class="stats-section">
-                      <h3 class="stats-title">Статистика</h3>
-
-                      <div class="stats-section-header">
-                        <span class="stats-section-title">Оценки</span>
-                        <span class="stats-section-value" id="average-rating">8.78</span>
-                      </div>
-
-                      <div class="rating-distribution">
-                        <div class="rating-row">
-                          <span class="rating-star">10 ★</span>
-                          <div class="rating-progress">
-                            <div class="progress-bar" style="width: 42.5%; background: #4CAF50;"></div>
-                          </div>
-                          <span class="rating-count">1.2K</span>
-                        </div>
-                        <div class="rating-row">
-                          <span class="rating-star">9 ★</span>
-                          <div class="rating-progress">
-                            <div class="progress-bar" style="width: 28.3%; background: #8BC34A;"></div>
-                          </div>
-                          <span class="rating-count">798</span>
-                        </div>
-                        <div class="rating-row">
-                          <span class="rating-star">8 ★</span>
-                          <div class="rating-progress">
-                            <div class="progress-bar" style="width: 15.7%; background: #FFC107;"></div>
-                          </div>
-                          <span class="rating-count">442</span>
-                        </div>
-                        <div class="rating-row">
-                          <span class="rating-star">7 ★</span>
-                          <div class="rating-progress">
-                            <div class="progress-bar" style="width: 8.2%; background: #FF9800;"></div>
-                          </div>
-                          <span class="rating-count">231</span>
-                        </div>
-                        <div class="rating-row">
-                          <span class="rating-star">6 ★</span>
-                          <div class="rating-progress">
-                            <div class="progress-bar" style="width: 3.1%; background: #FF5722;"></div>
-                          </div>
-                          <span class="rating-count">87</span>
-                        </div>
-                        <div class="rating-row">
-                          <span class="rating-star">5 ★</span>
-                          <div class="rating-progress">
-                            <div class="progress-bar" style="width: 2.2%; background: #F44336;"></div>
-                          </div>
-                          <span class="rating-count">62</span>
-                        </div>
-                      </div>
-
-                      <div class="stats-total">
-                        <span>Всего оценок:</span>
-                        <strong id="total-ratings">2,820</strong>
-                      </div>
-                    </div>
-
-                    <div class="stats-section">
-                      <div class="stats-section-header">
-                        <h3 class="stats-title">Статистика</h3>
-                      </div>
-
-                      <div class="lists-distribution">
-                        <div class="list-row">
-                          <span class="list-name">Читают</span>
-                          <div class="list-progress">
-                            <div class="progress-bar" style="width: 65%; background: #3498db;"></div>
-                          </div>
-                          <span class="list-count">18.7K</span>
-                        </div>
-                        <div class="list-row">
-                          <span class="list-name">В планах</span>
-                          <div class="list-progress">
-                            <div class="progress-bar" style="width: 22%; background: #9b59b6;"></div>
-                          </div>
-                          <span class="list-count">6.3K</span>
-                        </div>
-                        <div class="list-row">
-                          <span class="list-name">Прочитано</span>
-                          <div class="list-progress">
-                            <div class="progress-bar" style="width: 10%; background: #2ecc71;"></div>
-                          </div>
-                          <span class="list-count">2.9K</span>
-                        </div>
-                        <div class="list-row">
-                          <span class="list-name">Отложено</span>
-                          <div class="list-progress">
-                            <div class="progress-bar" style="width: 2%; background: #e74c3c;"></div>
-                          </div>
-                          <span class="list-count">574</span>
-                        </div>
-                        <div class="list-row">
-                          <span class="list-name">Брошено</span>
-                          <div class="list-progress">
-                            <div class="progress-bar" style="width: 1%; background: #95a5a6;"></div>
-                          </div>
-                          <span class="list-count">287</span>
-                        </div>
-                      </div>
-
-                      <div class="stats-total">
-                        <span>Всего в списках:</span>
-                        <strong id="total-lists">28,850</strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
             </ul>
+          </div>
+          <div class="manga-stats-container">
+            <div class="stats-section">
+              <div class="stats-header">
+                <span>Оценки</span>
+                <div class="average-rating">
+                  <span id="avg-rating">0.00</span>
+                  <span>/10</span>
+                </div>
+              </div>
+
+              <div class="ratings-distribution" id="ratings-distribution">
+                <!-- Динамически заполнится через JS -->
+              </div>
+
+              <div class="stats-footer">
+                <span>Всего оценок:</span>
+                <span id="total-votes">0</span>
+              </div>
+            </div>
+
+            <!-- Блок списков -->
+            <div class="stats-section">
+              <div class="stats-header">
+                <span>В списках</span>
+                <div class="total-lists">
+                  <span id="total-lists-count">0</span>
+                </div>
+              </div>
+
+              <div class="lists-distribution" id="lists-distribution">
+                <!-- Динамически заполнится через JS -->
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+    </section>
+    <section class="similiar">
+      <div class="container">
+        <div class="similar-manga-section">
+          <h2 class="second-title">Связанное</h2>
+
+          <div class="similar-manga-container">
+            <div class="similar-manga-scroll">
+              <!-- Элементы будут добавлены динамически через JS -->
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="scroll-btn scroll-left" aria-label="Прокрутить влево">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="scroll-btn scroll-right" aria-label="Прокрутить вправо">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+
+        <div class="similar-manga-section">
+          <h2 class="second-title">Похожее</h2>
+
+          <div class="similar-manga-container">
+            <div class="similar-manga-scroll">
+              <!-- Элементы будут добавлены динамически через JS -->
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="scroll-btn scroll-left" aria-label="Прокрутить влево">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="scroll-btn scroll-right" aria-label="Прокрутить вправо">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </main>
