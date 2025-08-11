@@ -13,7 +13,7 @@ async def manga_description(name: str) -> Manga | None:
     res = await MangaDAO.select_manga_description(name)
     return res
 
-@router.get("/{id}")
+@router.get("/id/{id}")
 async def manga_with_id(id: int) -> Manga | None:
     res = await MangaDAO.find_with_id(id)
     return res

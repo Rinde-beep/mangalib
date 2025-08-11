@@ -34,7 +34,7 @@ class MangaDAO:
             return {"msg": "success"}
     
     @classmethod
-    async def select_manga_description(cls, id: int) -> Manga | None:
+    async def find_with_id(cls, id: int) -> Manga | None:
         async with async_session_maker() as ses:
             try:
                 query = select(Mangas.__table__.columns).where(Mangas.id==int(id))
