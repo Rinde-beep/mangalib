@@ -18,7 +18,7 @@ app.include_router(manga_router)
 app.include_router(user_router)
 app.include_router(review_router)
 
-@app.get("/", tags=["Main"])
+@app.get("/api/", tags=["Main"])
 def main_page():
     pass
 

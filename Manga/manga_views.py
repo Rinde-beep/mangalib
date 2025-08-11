@@ -6,11 +6,16 @@ from Core.Models.manga import Mangas
 from sqlalchemy import select
 from Manga.crud import MangaDAO
 
-router = APIRouter(prefix="/manga", tags=["Manga"])
+router = APIRouter(prefix="/api/manga", tags=["Manga"])
 
 @router.get("/{name}")
 async def manga_description(name: str) -> Manga | None:
     res = await MangaDAO.select_manga_description(name)
+    return res
+
+@router.get("/id/{id}")
+async def manga_with_id(id: int) -> Manga | None:
+    res = await MangaDAO.find_with_id(id)
     return res
 
 @router.get("/{name}/read/{tom}/{chapter}")
