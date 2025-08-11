@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from User.schemas import User
 import User.crud as crud
-router = APIRouter(prefix="/user", tags=["User"])
+router = APIRouter(prefix="/api/user", tags=["User"])
 
 
 @router.get("/")

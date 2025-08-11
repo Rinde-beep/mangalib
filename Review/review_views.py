@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from Review.schemas import Review
 import Review.crud as crud
 
-router = APIRouter(prefix="/review", tags=["Review"])
+router = APIRouter(prefix="/api/review", tags=["Review"])
 
 @router.get("/")
 def review():
