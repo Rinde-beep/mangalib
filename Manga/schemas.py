@@ -13,19 +13,9 @@ class Manga(BaseModel):
     description: str
     tags: str
     rating: float
-    author: str
-    artist: str
     chapter_size: int
     volume_size: int
     status: str
 
     model_config = {"extra": "forbid"}
 
-class Page(BaseModel):
-    id: int
-    manga_id: int
-    page_id: int
-    comments: dict
-    volume: int
-    chapter: int
-    page: int

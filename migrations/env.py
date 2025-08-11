@@ -7,7 +7,6 @@ from alembic import context
 
 from Core.Models.Base import Base
 from Core.Models.manga import Mangas
-from Core.Models.page import Pages
 from Core.Models.review import Reviews
 from Core.Models.user import Users
 from Core.config import settings
