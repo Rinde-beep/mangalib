@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manga</title>
+</head>
+<body>
+  <h1 id="manga-read">Loading</h1>
+  <script>
+    const mangaName = window.location.pathname.split('/')[pathParts.length - 1]
+    fetch(`http://127.0.0.1:8000/manga/${mangaName}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById("manga-title").textContent = "Not found";
+      } else {
+        document.getElementById("manga-title").textContent = data.title;
+      }
+    })
+  </script>
+</body>
+</html>
