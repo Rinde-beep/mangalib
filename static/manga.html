@@ -43,7 +43,7 @@
   <main class="main">
     <section class="hero">
       <div class="container">
-        <h1 id="manga-name" class="hero__title">Ханако-кун живет в туалете</h1>
+        <h1 id="manga-name" class="hero__title">Загрузка названия...</h1>
         <div class="hero__grid2">
           <div class="hero__gridarticle">
             <article id="manga-photo" class="hero__article">
@@ -52,10 +52,73 @@
             </article>
             <div>
               <p class="text">Оценить</p>
+              <div class="rating-container">
+                <div class="rating-stars" id="rating">
+                  <div class="stars-active"></div>
+                  <div class="stars-hover"></div>
+
+                  <!-- Области для взаимодействия -->
+                  <div class="star-area half" data-value="1"></div>
+                  <div class="star-area full" data-value="2"></div>
+                  <div class="star-area half" data-value="3"></div>
+                  <div class="star-area full" data-value="4"></div>
+                  <div class="star-area half" data-value="5"></div>
+                  <div class="star-area full" data-value="6"></div>
+                  <div class="star-area half" data-value="7"></div>
+                  <div class="star-area full" data-value="8"></div>
+                  <div class="star-area half" data-value="9"></div>
+                  <div class="star-area full" data-value="10"></div>
+
+                  <input type="hidden" class="rating-input" name="rating" value="0">
+                </div>
+                <span class="rating-value" id="rating-value">0</span>
+              </div>
             </div>
-            <div>
+            <div class="list-dropdown">
+              <button class="list-dropdown__toggle" id="listToggle">
+                <span class="list-dropdown__status">Добавить в список</span>
+                <span class="list-dropdown__arrow">▼</span>
+              </button>
+              <div class="list-dropdown__menu" id="listMenu">
+                <!-- <div class="list-dropdown__search">
+                <input type="text" placeholder="Поиск списка..." class="list-dropdown__search-input">
+            </div> -->
+                <ul class="list-dropdown__items">
+                  <li class="list-dropdown__item" data-value="planned">
+                    <span class="list-dropdown__item-text">Запланировано</span>
+                    <span class="list-dropdown__item-checkmark">✓</span>
+                  </li>
+                  <li class="list-dropdown__item" data-value="watching">
+                    <span class="list-dropdown__item-text">Читаю</span>
+                    <span class="list-dropdown__item-checkmark">✓</span>
+                  </li>
+                  <li class="list-dropdown__item" data-value="completed">
+                    <span class="list-dropdown__item-text">Прочитано</span>
+                    <span class="list-dropdown__item-checkmark">✓</span>
+                  </li>
+                  <li class="list-dropdown__item" data-value="on_hold">
+                    <span class="list-dropdown__item-text">Отложено</span>
+                    <span class="list-dropdown__item-checkmark">✓</span>
+                  </li>
+                  <li class="list-dropdown__item" data-value="dropped">
+                    <span class="list-dropdown__item-text">Брошено</span>
+                    <span class="list-dropdown__item-checkmark">✓</span>
+                  </li>
+                  <li class="list-dropdown__item list-dropdown__item--remove" data-value="remove">
+                    <span class="list-dropdown__item-text">Удалить из списка</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <div>
               <p class="text">Добавить в список</p>
-            </div>
+              <select>
+                <option value="volvo">MERN</option>
+                <option value="saab" selected>DevOps</option>
+                <option value="mercedes">AI/ML</option>
+                <option value="audi">Data Science</option>
+              </select>
+            </div> -->
           </div>
 
           <div class="hero__section">
@@ -64,109 +127,102 @@
               <li class="hero__item boxes">
                 <h2 class="second-title hero__itemtitle">Информация</h2>
                 <div id="manga-info">
-                  <p class="text">Тип: манга</p>
-                  <p class="text">Статус: манга</p>
-                  <p class="text">Теги: манга</p>
-                  <p class="text">Кол-во томов: манга</p>
-                  <p class="text">Кол-во глав: манга</p>
+                  <p class="text">Загрузка информации...</p>
                 </div>
               </li>
               <li class="hero__item">
-                <div class="boxes">
+                <div class="hero__ratingbigstars">
                   <h2 class="second-title hero__itemtitle">Рейтинг</h2>
-                  <div id="manga-stars"></div>
+                  <div id="rating-stars">
+                    <p class="text">Загрузка рейтинга...</p>
+                  </div>
                 </div>
+
+                <div class="hero__statscont">
+                  <div class="hero__stats">
+                    <div class="hero__statstop">
+                      <span class="hero__statstitle">Оценки</span>
+                      <div class="hero__rating">
+                        <span id="avg-rating">0.00</span>
+                        <span>/10</span>
+                      </div>
+                    </div>
+
+                    <div id="ratings-distribution">
+                      <!-- Динамически заполнится через JS -->
+                    </div>
+
+                    <div class="hero__statsfoot">
+                      <span>Всего оценок:</span>
+                      <span id="total-votes">0</span>
+                    </div>
+                  </div>
+
+                  <!-- Блок списков -->
+                  <div class="hero__stats">
+                    <div class="hero__statstop">
+                      <span class="hero__statstitle">В списках</span>
+                      <div>
+                        <span id="total-lists-count">0</span>
+                      </div>
+                    </div>
+
+                    <div id="lists-distribution">
+                      <!-- Динамически заполнится через JS -->
+                    </div>
+                  </div>
+
+                </div>
+
               </li>
-              <li class="hero__item hero__item--descr boxes">
+              <li class="hero__item hero__item--descr">
                 <h2 class="second-title hero__itemtitle">Описание</h2>
-                <p id="manga-description" class="texts">Академия Камомэ полнится слухами о потусторонних явлениях, происходящих в школе. Всё
-                  это настолько будоражит учеников, что эти явления даже получают название — «Семь тайн». Самой
-                  перспективной из них считается легенда о девочке-призраке Ханако, обитающей в туалетной комнате на
-                  третьем этаже старого школьного корпуса, ведь она может исполнить любое желание того, кто её призовёт.
-                  Ученица первого курса старшей школы Нэнэ Ясиро настолько отчаялась в исполнении своей мечты, что
-                  решается на риск и отправляется за помощью к призраку. На такие крайние меры Нэнэ толкает жажда любви,
-                  ведь идеальный сэмпай, в которого она влюблена, даже не знает о её существовании.
-                  Нэнэ ждала всего чего угодно, но и представить не могла, что откликнувшаяся на её призыв Ханако
-                  окажется мальчиком!</p>
+                <p id="manga-description" class="texts">Загрузка описания...</p>
               </li>
             </ul>
           </div>
-          <div class="manga-stats-container">
-            <div class="stats-section">
-              <div class="stats-header">
-                <span>Оценки</span>
-                <div class="average-rating">
-                  <span id="avg-rating">0.00</span>
-                  <span>/10</span>
-                </div>
-              </div>
 
-              <div class="ratings-distribution" id="ratings-distribution">
-                <!-- Динамически заполнится через JS -->
-              </div>
-
-              <div class="stats-footer">
-                <span>Всего оценок:</span>
-                <span id="total-votes">0</span>
-              </div>
-            </div>
-
-            <!-- Блок списков -->
-            <div class="stats-section">
-              <div class="stats-header">
-                <span>В списках</span>
-                <div class="total-lists">
-                  <span id="total-lists-count">0</span>
-                </div>
-              </div>
-
-              <div class="lists-distribution" id="lists-distribution">
-                <!-- Динамически заполнится через JS -->
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
     </section>
-    <section class="similiar">
+    <section class="similar">
       <div class="container">
-        <div class="similar-manga-section">
           <h2 class="second-title">Связанное</h2>
 
-          <div class="similar-manga-container">
-            <div class="similar-manga-scroll">
+          <div class="similar__mangacontainer">
+            <div id="related-scroll" class="similar__mangascroll">
               <!-- Элементы будут добавлены динамически через JS -->
             </div>
 
             <!-- Кнопки навигации -->
-            <button class="scroll-btn scroll-left" aria-label="Прокрутить влево">
+            <button class="similar__scrollbtn scroll-left" aria-label="Прокрутить влево">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="scroll-btn scroll-right" aria-label="Прокрутить вправо">
+            <button class="similar__scrollbtn scroll-right" aria-label="Прокрутить вправо">
               <i class="fas fa-chevron-right"></i>
             </button>
-          </div>
+
         </div>
+        <h2 class="second-title">Похожее</h2>
 
-
-        <div class="similar-manga-section">
-          <h2 class="second-title">Похожее</h2>
-
-          <div class="similar-manga-container">
-            <div class="similar-manga-scroll">
+          <div class="similar__mangacontainer">
+            <div id="similar-scroll" class="similar__mangascroll">
               <!-- Элементы будут добавлены динамически через JS -->
             </div>
 
             <!-- Кнопки навигации -->
-            <button class="scroll-btn scroll-left" aria-label="Прокрутить влево">
+            <button class="similar__scrollbtn scroll-left" aria-label="Прокрутить влево">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="scroll-btn scroll-right" aria-label="Прокрутить вправо">
+            <button class="similar__scrollbtn scroll-right" aria-label="Прокрутить вправо">
               <i class="fas fa-chevron-right"></i>
             </button>
-          </div>
+
         </div>
+
+
+
+
       </div>
 
     </section>
