@@ -1,16 +1,16 @@
-from Core.Models.manga import Mangas
+import Core.Models.manga as m
 from Core.Models.Base import async_session_maker
 from sqlalchemy import select, and_, not_
+from Core.BaseDAO import BaseDAO
 
-class CatalogDAO:
+class CatalogDAO(BaseDAO):
+    model = m.Mangas
 
     @classmethod
-    async def see_catalog(cls, genre_in: list[str], genre_ex, page: int) -> list[Mangas]:
+    async def see_catalog(cls, page: int, filter: str | None, sort: str | None, genre_in: list[str] | str, genre_ex: list[str] | str) -> list[m.Mangas]:
         async with async_session_maker() as ses:
-            
-            query = select(Mangas).offset(page * 10).limit(10).where(and_(and_(Mangas.tags.contains(x) for x in genre_in), and_(not_(Mangas.tags.contains(x)) for x in genre_ex)))
+            query = select(m.Mangas.__table__.columns).offset(page * 10).limit(10).where(and_((and_(m.Mangas.tags.contains(x) for x in genre_in)) if genre_in else True), ((not_(and_(m.Mangas.tags.contains(x) for x in genre_ex))) if genre_ex else True))
             res = await ses.execute(query)
-            print("*".join(genre_in))
             return res.mappings().all()
 
 

@@ -37,3 +37,15 @@ class Manga(BaseModel):
 
     model_config = {"extra": "forbid"}
 
+class MangaAdd(BaseModel):
+    preview_picture_id: str | None = None
+    name: str
+    description: str
+    tags: str
+    rating: float
+    chapter_size: int
+    volume_size: int
+    status: str
+
+    model_config = {"extra": "forbid"}
+

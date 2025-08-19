@@ -1,35 +1,37 @@
 from Core.Models.Base import Base
-from sqlalchemy import Column, Integer, String, LargeBinary, Float
-
+from sqlalchemy import Column, String, LargeBinary, Float, ARRAY
+from sqlalchemy.orm import mapped_column, Mapped, relationship
+from typing import List
+import Core.Models.ratings as r
+import Core.Models.comment as c
+import Core.Models.review as r
+import Core.Models.user as u
+import Core.Models.lists as l
 
 class Mangas(Base):
+
     __tablename__ = "mangas"
 
-    id = Column(Integer, primary_key=True)
-    preview_picture_id: int = Column(String, default=None)
-    name = Column(String, nullable=False)
-    description = Column(String)
-    tags = Column(String, nullable=False)
-    rating = Column(Float, nullable=False)
-    chapter_size = Column(Integer, nullable=False)
-    volume_size = Column(Integer, nullable=False)
-    status = Column(String, nullable=False)
-    total_list = Column(Integer, default=0)
-    reading = Column(Integer, default=0)
-    planned = Column(Integer, default=0)
-    completed = Column(Integer, default=0)
-    favorite = Column(Integer, default=0)
-    on_hold = Column(Integer, default=0)
-    dropped = Column(Integer, default=0)
-    total_rating = Column(Integer, default=0)
-    rating_10 = Column(Integer, default=0)
-    rating_9 = Column(Integer, default=0)
-    rating_8 = Column(Integer, default=0)
-    rating_7 = Column(Integer, default=0)
-    rating_6 = Column(Integer, default=0)
-    rating_5 = Column(Integer, default=0)
-    rating_4 = Column(Integer, default=0)
-    rating_3 = Column(Integer, default=0)
-    rating_2 = Column(Integer, default=0)
-    rating_1 = Column(Integer, default=0)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    preview_picture_id: Mapped[str] = mapped_column(default="")
+    name: Mapped[str] = mapped_column(nullable=False)
+    description: Mapped[str] = mapped_column()
+    tags: Mapped[list[str]] = mapped_column(ARRAY(String),nullable=False)
+    rating: Mapped[float] = mapped_column(nullable=False)
+    chapter_size: Mapped[int] = mapped_column(nullable=False)
+    volume_size: Mapped[int] = mapped_column(nullable=False)
+    status: Mapped[str] = mapped_column(nullable=False)
+
+    list: Mapped[List["l.Lists"]] = relationship(back_populates="manga")
+    
+    rating: Mapped[List["r.Ratings"]] = relationship(back_populates="manga")
+
+    comment: Mapped[List["c.Comments"]] = relationship(back_populates="manga")
+
+    review: Mapped[List["r.Reviews"]] = relationship(back_populates="manga")
+
+    user: Mapped[List["u.Users"]] = relationship(back_populates="manga")
+    
+
+
 

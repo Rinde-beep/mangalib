@@ -1,13 +1,19 @@
 from Core.Models.Base import Base
-from sqlalchemy import Column, Integer, String, JSON, Float, ForeignKey
-
-class Comment(Base):
+from sqlalchemy import Column, String, JSON, Float, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+import Core.Models.manga as m
+import Core.Models.review as r
+from typing import List
+class Comments(Base):
     __tablename__ = "comments"
 
-    id = Column(Integer, primary_key=True, nullable=False)
-    manga_id = Column(Integer, ForeignKey("mangas.id"))
-    review_id = Column(Integer, ForeignKey("reviews.id"))
-    user = Column(String, nullable=False)
-    description = Column(String, nullable=False)
-    likes = Column(Integer, nullable=False)
-    dislikes = Column(Integer, nullable=False)
+    id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
+    manga_id: Mapped[int] = mapped_column(ForeignKey("mangas.id"))
+    review_id: Mapped[int] = mapped_column(ForeignKey("reviews.id"))
+    user: Mapped[str] = mapped_column(nullable=False)
+    description: Mapped[str] = mapped_column(nullable=False)
+    likes: Mapped[int] = mapped_column(nullable=False)
+    dislikes: Mapped[int] = mapped_column(nullable=False)
+
+    manga: Mapped["m.Mangas"] = relationship(back_populates="comment")
+    review: Mapped["r.Reviews"] = relationship(back_populates="comment")

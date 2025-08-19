@@ -1,5 +1,7 @@
 import aiohttp
 from LxmlSoup import LxmlSoup
+from Core.Models.manga import Mangas
+from sqlalchemy import select
 import asyncio
 import time
 success = 0
@@ -10,10 +12,16 @@ manga = {}
 genir = []
 genr = []
 g = []
+names_all = []
+from Core.Models.Base import async_session_maker
+
+
 async def pars():
     
+    print(names_all)
+    
     async with aiohttp.ClientSession() as ses:
-        for i in range(4558, 500000):
+        for i in res:
             try:
                 url = f"https://shikimori.one/mangas/{i}"
                 print(str(i) + " - id")
