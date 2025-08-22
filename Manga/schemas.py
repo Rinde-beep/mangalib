@@ -2,20 +2,24 @@ from pydantic import BaseModel
 from enum import Enum
 from sqlalchemy import BLOB, JSON
 class Status(Enum):
-    ended = 0
-    ongoing = 1
-    closed = 2
+    finished = "издано"
+    ongoing = "выходит"
+    stopped = "приостановлено"
 
 class Manga(BaseModel):
     id: int | None = None
     preview_picture_id: str | None = None
     name: str
-    description: str
-    tags: str
-    rating: float
-    chapter_size: int
-    volume_size: int
-    status: str
+    alternative_name: str
+    description: str | None
+    tags: list[str] | None
+    rating: float | None
+    chapter_size: int | None
+    volume_size: int | None
+    status: Status | None
+
+class List(BaseModel):
+    id: int | None = None
     total_list: int | None = 0
     reading: int | None = 0
     planned: int | None = 0
@@ -23,6 +27,9 @@ class Manga(BaseModel):
     favorite: int | None = 0
     on_hold: int | None = 0
     dropped : int | None = 0
+
+
+class Rating(BaseModel):
     total_rating: int | None = 0
     rating_10: int | None = 0
     rating_9: int | None = 0
@@ -35,17 +42,16 @@ class Manga(BaseModel):
     rating_2: int | None = 0
     rating_1: int | None = 0
 
-    model_config = {"extra": "forbid"}
-
 class MangaAdd(BaseModel):
-    preview_picture_id: str | None = None
+    picture: bytes | None = None
     name: str
-    description: str
-    tags: str
-    rating: float
-    chapter_size: int
-    volume_size: int
-    status: str
+    alternative_name: str
+    description: str | None
+    tags: list[str] | None
+    rating: float | None
+    chapter_size: int | None
+    volume_size: int | None
+    status: Status | None
 
     model_config = {"extra": "forbid"}
 

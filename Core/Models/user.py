@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from Core.Models.Base import Base
 from sqlalchemy import Column, Integer, String, ForeignKey, ARRAY
 from sqlalchemy.orm import mapped_column, Mapped, relationship
@@ -5,6 +8,14 @@ from pydantic import EmailStr
 import Core.Models.manga as m
 import Core.Models.review as r
 from typing import List
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from Core.Models.comment import Comments
+    from Core.Models.lists import Lists
+    from Core.Models.review import Reviews
+    from Core.Models.user import Users
+    from Core.Models.manga import Mangas
 
 
 class Users(Base):
@@ -17,7 +28,6 @@ class Users(Base):
     lvl: Mapped[int] = mapped_column(nullable=False, default=0)
     bookmarks: Mapped[list[int]] = mapped_column(ARRAY(Integer), ForeignKey("mangas.id"), nullable=False, default="")
 
-    manga: Mapped["m.Mangas"] = relationship(back_populates="user")
 
-    review: Mapped[List["r.Reviews"]] = relationship(back_populates="user")
+    review: Mapped[List["Reviews"]] = relationship(backref="user")
 

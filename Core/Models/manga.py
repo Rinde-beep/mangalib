@@ -1,36 +1,60 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 from Core.Models.Base import Base
-from sqlalchemy import Column, String, LargeBinary, Float, ARRAY
+from sqlalchemy import Column, String, LargeBinary, Float, ARRAY, func, text
 from sqlalchemy.orm import mapped_column, Mapped, relationship
-from typing import List
-import Core.Models.ratings as r
-import Core.Models.comment as c
-import Core.Models.review as r
-import Core.Models.user as u
-import Core.Models.lists as l
+from typing import List, TYPE_CHECKING
+
+from enum import Enum
+from datetime import datetime
+
+if TYPE_CHECKING:
+    from Core.Models.comment import Comments
+    from Core.Models.lists import Lists
+    from Core.Models.review import Reviews
+    from Core.Models.user import Users
+    from Core.Models.manga import Mangas
 
 class Mangas(Base):
 
     __tablename__ = "mangas"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    preview_picture_id: Mapped[str] = mapped_column(default="")
-    name: Mapped[str] = mapped_column(nullable=False)
+    picture: Mapped[bytes] = mapped_column(LargeBinary)
+    name: Mapped[str] = mapped_column()
+    alternative_name: Mapped[str] = mapped_column()
     description: Mapped[str] = mapped_column()
-    tags: Mapped[list[str]] = mapped_column(ARRAY(String),nullable=False)
-    rating: Mapped[float] = mapped_column(nullable=False)
-    chapter_size: Mapped[int] = mapped_column(nullable=False)
-    volume_size: Mapped[int] = mapped_column(nullable=False)
-    status: Mapped[str] = mapped_column(nullable=False)
+    tags: Mapped[list[str]] = mapped_column(ARRAY(String))
+    rating: Mapped[float] = mapped_column()
+    chapter_size: Mapped[int] = mapped_column()
+    volume_size: Mapped[int] = mapped_column()
+    status: Mapped[str] = mapped_column()
+    time: Mapped[str] = mapped_column(server_default=text("TIMEZONE('utc', now())"))
+    author: Mapped[list[str]] = mapped_column(ARRAY(String))
+    izdat: Mapped[str] = mapped_column()
 
-    list: Mapped[List["l.Lists"]] = relationship(back_populates="manga")
+    rating_10: Mapped[int] = mapped_column(default=0)
+    rating_9: Mapped[int] = mapped_column(default=0)
+    rating_8: Mapped[int] = mapped_column(default=0)
+    rating_7: Mapped[int] = mapped_column(default=0)
+    rating_6: Mapped[int] = mapped_column(default=0)
+    rating_5: Mapped[int] = mapped_column(default=0)
+    rating_4: Mapped[int] = mapped_column(default=0)
+    rating_3: Mapped[int] = mapped_column(default=0)
+    rating_2: Mapped[int] = mapped_column(default=0)
+    rating_1: Mapped[int] = mapped_column(default=0)
+
+
+
+    list: Mapped["Lists"] = relationship(backref="manga")
     
-    rating: Mapped[List["r.Ratings"]] = relationship(back_populates="manga")
+    comment: Mapped[List["Comments"]] = relationship(backref="manga")
 
-    comment: Mapped[List["c.Comments"]] = relationship(back_populates="manga")
+    review: Mapped[List["Reviews"]] = relationship(backref="manga")
 
-    review: Mapped[List["r.Reviews"]] = relationship(back_populates="manga")
-
-    user: Mapped[List["u.Users"]] = relationship(back_populates="manga")
+    user: Mapped[List["Users"]] = relationship(backref="manga")
     
 
 
