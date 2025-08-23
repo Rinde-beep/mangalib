@@ -22,15 +22,15 @@ class Mangas(Base):
     volume_size: Mapped[int] = mapped_column(nullable=False)
     status: Mapped[str] = mapped_column(nullable=False)
 
-    list: Mapped[List["l.Lists"]] = relationship(back_populates="manga")
+    # list: Mapped[List["l.Lists"]] = relationship(back_populates="manga")
     
-    rating: Mapped[List["r.Ratings"]] = relationship(back_populates="manga")
+    # rating: Mapped[List["r.Ratings"]] = relationship(back_populates="manga")
 
-    comment: Mapped[List["c.Comments"]] = relationship(back_populates="manga")
+    # comment: Mapped[List["c.Comments"]] = relationship(back_populates="manga")
 
-    review: Mapped[List["r.Reviews"]] = relationship(back_populates="manga")
+    # review: Mapped[List["r.Reviews"]] = relationship(back_populates="manga")
 
-    user: Mapped[List["u.Users"]] = relationship(back_populates="manga")
+    # user: Mapped[List["u.Users"]] = relationship(back_populates="manga")
     
 
 

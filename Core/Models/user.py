@@ -17,7 +17,7 @@ class Users(Base):
     lvl: Mapped[int] = mapped_column(nullable=False, default=0)
     bookmarks: Mapped[list[int]] = mapped_column(ARRAY(Integer), ForeignKey("mangas.id"), nullable=False, default="")
 
-    manga: Mapped["m.Mangas"] = relationship(back_populates="user")
+    # manga: Mapped["m.Mangas"] = relationship(back_populates="user")
 
-    review: Mapped[List["r.Reviews"]] = relationship(back_populates="user")
+    # review: Mapped[List["r.Reviews"]] = relationship(back_populates="user")
 

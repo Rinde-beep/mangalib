@@ -1,6 +1,6 @@
 import aiohttp
 from LxmlSoup import LxmlSoup
-from Core.Models.manga import Mangas
+# from Core.Models.manga import Mangas
 from sqlalchemy import select
 import asyncio
 import time

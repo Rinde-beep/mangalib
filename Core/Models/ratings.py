@@ -15,4 +15,4 @@ class Ratings(Base):
     on_hold: Mapped[int] = mapped_column(default=0)
     dropped: Mapped[int] = mapped_column(default=0)
 
-    manga: Mapped["m.Mangas"] = relationship(back_populates="rating")
+    # manga: Mapped["m.Mangas"] = relationship(back_populates="rating")ы
