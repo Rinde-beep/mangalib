@@ -4,7 +4,7 @@ from sqlalchemy import select, and_, not_
 from Core.BaseDAO import BaseDAO
 from PIL import Image
 import io
-
+import base64
 
 class CatalogDAO(BaseDAO):
     model = m.Mangas
@@ -24,12 +24,10 @@ class CatalogDAO(BaseDAO):
             query = select(m.Mangas).offset(page * 10).limit(3).where(and_((and_(m.Mangas.tags.contains(x) for x in genre_in)) if genre_in else True), ((not_(and_(m.Mangas.tags.contains(x) for x in genre_ex))) if genre_ex else True)).order_by(order_by if desc == False else order_by.desc())
             res = await ses.execute(query)
             result = res.scalars().all()
-            print(result, type(result))
             for i in result:
-                
                 image_data = i.picture
-                image = Image.open(io.BytesIO(image_data))
-                i.picture = image.show()
+                
+                i.picture = base64.b64encode(image_data).decode("utf-8")
             return result
 
 
