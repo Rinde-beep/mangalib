@@ -2,7 +2,7 @@ from fastapi import APIRouter, Query
 from typing import Annotated
 from Catalog.crud import CatalogDAO
 from fastapi_cache.decorator import cache
-import asyncio
+from Catalog.schemas import Order
 
 router = APIRouter(prefix="/api/catalog", tags=["Catalog"])
 
@@ -12,8 +12,8 @@ async def catalog(page: int = 0,
             genres_include:
             Annotated[list[str] | str, Query()] = None, 
             genres_exclude: Annotated[list[str] | str, Query()] = None,
-            filter: str | None = None,
-            sort: str | None = None
+            order: Annotated[Order, Query()] | None = None,
+            desc: bool | None = False
             ):
-    res = await CatalogDAO.see_catalog(page, filter, sort, genres_include, genres_exclude)
+    res = await CatalogDAO.see_catalog(page, genres_include, genres_exclude, order, desc)
     return res
