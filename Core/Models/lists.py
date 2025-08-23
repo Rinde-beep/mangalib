@@ -25,5 +25,3 @@ class Lists(Base):
     favorite: Mapped[int] = mapped_column(default=0)
     on_hold: Mapped[int] = mapped_column(default=0)
     dropped: Mapped[int] = mapped_column(default=0)
-
-    # manga: Mapped["m.Mangas"] = relationship(back_populates="list")
