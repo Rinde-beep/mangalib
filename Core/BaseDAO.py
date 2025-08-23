@@ -7,13 +7,12 @@ class BaseDAO():
     @classmethod
     async def find_by_id(cls, id: int):
         async with async_session_maker() as ses:
-            query = select(cls.model.__table__.columns).filter_by(id=id)
             try:
-                res = await ses.execute(query)
+                res = await ses.get(cls.model, id)
             except NoResultFound:
                 return None
-            result = res.mappings().one()
-            return result
+            
+            return res
         
     @classmethod
     async def find_one_or_none(cls, **filter_by):
@@ -36,8 +35,8 @@ class BaseDAO():
     @classmethod
     async def insert_data(cls, **values):
         async with async_session_maker() as ses:
-            query = insert(cls.model).values(**values)
-            await ses.execute(query)
+            data = cls.model(**values)
+            ses.add(data)
             await ses.commit()
 
         

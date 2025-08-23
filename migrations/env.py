@@ -10,7 +10,8 @@ from Core.Models.manga import Mangas
 from Core.Models.review import Reviews
 from Core.Models.user import Users
 from Core.config import settings
-from Core.Models.comment import Comment
+from Core.Models.comment import Comments
+from Core.Models.lists import Lists
 import sys
 from os.path import abspath, dirname
 

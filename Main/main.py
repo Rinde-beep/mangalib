@@ -54,15 +54,3 @@ admin.add_view(MangaAdmin)
 async def main_page():
     await asyncio.sleep(3)
     return ""
-
-
-@app.get("/api/get_all_names")
-async def names():
-    names_all = []
-    async with async_session_maker() as ses:
-        query = select(Mangas.name)
-        res = await ses.execute(query)
-    for i in res.mappings().all():
-        a = i.split("-")
-        names_all.append(a[0])
-    return names_all
