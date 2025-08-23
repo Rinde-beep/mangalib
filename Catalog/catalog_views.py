@@ -7,7 +7,7 @@ from Catalog.schemas import Order
 router = APIRouter(prefix="/api/catalog", tags=["Catalog"])
 
 @router.get("/")
-@cache(expire=30)
+# @cache(expire=30)
 async def catalog(page: int = 0, 
             genres_include:
             Annotated[list[str] | str, Query()] = None, 
