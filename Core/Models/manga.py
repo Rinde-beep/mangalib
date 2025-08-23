@@ -25,7 +25,7 @@ class Mangas(Base):
     picture: Mapped[bytes] = mapped_column(LargeBinary)
     name: Mapped[str] = mapped_column()
     alternative_name: Mapped[str] = mapped_column()
-    description: Mapped[str] = mapped_column()
+    description: Mapped[str] = mapped_column(nullable=True)
     tags: Mapped[list[str]] = mapped_column(ARRAY(String))
     rating: Mapped[float] = mapped_column()
     chapter_size: Mapped[int] = mapped_column()
@@ -53,8 +53,6 @@ class Mangas(Base):
     comment: Mapped[List["Comments"]] = relationship(backref="manga")
 
     review: Mapped[List["Reviews"]] = relationship(backref="manga")
-
-    user: Mapped[List["Users"]] = relationship(backref="manga")
     
 
 

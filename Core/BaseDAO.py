@@ -11,8 +11,8 @@ class BaseDAO():
                 res = await ses.get(cls.model, id)
             except NoResultFound:
                 return None
-            result = res.mappings().one()
-            return result
+            
+            return res
         
     @classmethod
     async def find_one_or_none(cls, **filter_by):

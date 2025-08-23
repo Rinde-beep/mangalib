@@ -26,8 +26,7 @@ class Users(Base):
     password: Mapped[str] = mapped_column(nullable=False)
     email: Mapped[str] = mapped_column(nullable=False)
     lvl: Mapped[int] = mapped_column(nullable=False, default=0)
-    bookmarks: Mapped[list[int]] = mapped_column(ARRAY(Integer), ForeignKey("mangas.id"), nullable=False, default="")
+    bookmarks: Mapped[list[int]] = mapped_column(ARRAY(Integer), nullable=False, default="")
 
 
-    review: Mapped[List["Reviews"]] = relationship(backref="user")
 

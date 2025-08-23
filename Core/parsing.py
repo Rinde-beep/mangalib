@@ -33,26 +33,31 @@ genre = ("Авангард",
 success = 0
 unsuc = 0
 overal = 0
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
 
 names_all = []
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from Models.Base import async_session_maker
 import re
 from Manga.crud import MangaDAO
+from pydantic import TypeAdapter
+import random
 
 class MangaAdd(BaseModel):
-    picture: bytes| None = None
-    name: str | None = None
-    alternative_name: str | None = None
-    description: str | None = None
+    picture: bytes
+    name: str
+    alternative_name: str 
+    description: str | None = ""
     tags: list[str] | None = []
     rating: float | None = 0.0
     chapter_size: int | None = 0
     volume_size: int | None = 0
-    status: str | None = None
-    izdat: str | None = None
+    status: str | None = ""
+    izdat: str | None = ""
     author: list | None = []
-    time: str | None = None
+    time: str | None = ""
 
     rating_10: int | None = 0
     rating_9: int | None = 0
@@ -142,6 +147,7 @@ async def pars(i):
             if desc:
                 manga["description"] = " ".join(desc.text().split(" "))
             else:
+                manga["description"] = ""
                 print("нет описания")
 
             #рейтинг
@@ -193,8 +199,12 @@ async def pars(i):
             if poster:
                 poster = poster.get("src")
                 try:
-                    with requests.get(poster) as ses:
-                        manga["picture"] = ses.content
+                    with requests.get(poster, headers=headers)as ses:
+                        if ses.status_code == 200:
+                            manga["picture"] = ses.content
+                        else:
+                            print("плохая пикча")
+                        
                 except requests.exceptions.MissingSchema:
                     print("bad picture - 404")
 
@@ -275,11 +285,13 @@ async def pars(i):
             
 
 async def validate():
-    for i in range(96, 97):
-        manga_ = await pars(i)
+    for i in range(1, 500000):
         try:
-            manga_1 = MangaAdd(**manga_)
-            if manga_ and manga_1:
+            manga_ = await pars(i)
+            
+            if manga_:
+                manga_1 = MangaAdd(**manga_)
+                print(manga_1.picture)
                 print(f"Имя - {manga_1.name}")
                 print(f"Русское имя - {manga_1.alternative_name}")
                 print(f"Жанры - {manga_1.tags}")
@@ -307,13 +319,16 @@ async def validate():
                 overal += 1
                 print("------")
                 await MangaDAO.insert_data(**manga_1.__dict__)
+                time.sleep(random.uniform(1.0, 1.5))
             else:
                 unsuc += 1
-        except ValidationError:
+                overal += 1
+        except Exception as e:
+            overal += 1
             unsuc += 1
+            print(f"Валидация - {e}")
             pass
         
-
 
 
 try:

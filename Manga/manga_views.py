@@ -13,13 +13,13 @@ router = APIRouter(prefix="/api/manga", tags=["Manga"])
 
 
 @router.get("/{name}")
-@cache(expire=30)
+# @cache(expire=30)
 async def manga_description(name: str) -> Manga | None:
     manga = await MangaDAO.find_one_or_none(name=name)
     return manga
 
 @router.get("/id/{id}")
-@cache(expire=30)
+# @cache(expire=30)
 async def manga_with_id(id: int) -> Manga | None:
     manga = await MangaDAO.find_by_id(id)
     return manga
