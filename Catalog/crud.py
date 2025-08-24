@@ -21,7 +21,7 @@ class CatalogDAO(BaseDAO):
             else:
                 order_by = m.Mangas.id
 
-            query = select(m.Mangas).offset(page * 10).limit(3).where(and_((and_(m.Mangas.tags.contains(x) for x in genre_in)) if genre_in else True), ((not_(and_(m.Mangas.tags.contains(x) for x in genre_ex))) if genre_ex else True)).order_by(order_by if desc == False else order_by.desc())
+            query = select(m.Mangas).offset(page * 12).limit(12).where(and_((and_(m.Mangas.tags.contains(x) for x in genre_in)) if genre_in else True), ((not_(and_(m.Mangas.tags.contains(x) for x in genre_ex))) if genre_ex else True)).order_by(order_by if desc == False else order_by.desc())
             res = await ses.execute(query)
             result = res.scalars().all()
             for i in result:
