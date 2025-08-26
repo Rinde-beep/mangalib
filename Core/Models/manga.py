@@ -17,35 +17,6 @@ if TYPE_CHECKING:
     from Core.Models.user import Users
     from Core.Models.manga import Mangas
 
-class Mangas1(Base):
-
-    __tablename__ = "mangas1"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    picture: Mapped[bytes] = mapped_column(LargeBinary)
-    name: Mapped[str] = mapped_column()
-    alternative_name: Mapped[str] = mapped_column()
-    description: Mapped[str] = mapped_column(nullable=True)
-    tags: Mapped[list[str]] = mapped_column(ARRAY(String))
-    rating: Mapped[float] = mapped_column()
-    chapter_size: Mapped[int] = mapped_column()
-    volume_size: Mapped[int] = mapped_column()
-    status: Mapped[str] = mapped_column()
-    time: Mapped[str] = mapped_column(server_default=text("TIMEZONE('utc', now())"))
-    author: Mapped[list[str]] = mapped_column(ARRAY(String))
-    izdat: Mapped[str] = mapped_column()
-
-    rating_10: Mapped[int] = mapped_column(default=0)
-    rating_9: Mapped[int] = mapped_column(default=0)
-    rating_8: Mapped[int] = mapped_column(default=0)
-    rating_7: Mapped[int] = mapped_column(default=0)
-    rating_6: Mapped[int] = mapped_column(default=0)
-    rating_5: Mapped[int] = mapped_column(default=0)
-    rating_4: Mapped[int] = mapped_column(default=0)
-    rating_3: Mapped[int] = mapped_column(default=0)
-    rating_2: Mapped[int] = mapped_column(default=0)
-    rating_1: Mapped[int] = mapped_column(default=0)
-
 class Mangas(Base):
 
     __tablename__ = "mangas"
@@ -78,11 +49,12 @@ class Mangas(Base):
 
 
 
-    list: Mapped["Lists"] = relationship(backref="manga")
+    list: Mapped["Lists"] = relationship(back_populates="manga")
     
-    comment: Mapped[List["Comments"]] = relationship(backref="manga")
+    comment: Mapped[List["Comments"]] = relationship(back_populates="manga")
 
-    review: Mapped[List["Reviews"]] = relationship(backref="manga")
+    review: Mapped[List["Reviews"]] = relationship(back_populates="manga")
+
     
 
 

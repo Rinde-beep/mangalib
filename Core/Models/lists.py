@@ -26,4 +26,5 @@ class Lists(Base):
     on_hold: Mapped[int] = mapped_column(default=0)
     dropped: Mapped[int] = mapped_column(default=0)
 
+    manga: Mapped["Mangas"] = relationship(back_populates="list")
 

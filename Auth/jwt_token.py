@@ -4,7 +4,7 @@ from User.schemas import UserReg
 from Core.config import settings
 from pydantic import EmailStr
 from Auth.crud import AuthDAO
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 import jwt
 
 def create_jwt_token(data: dict):
@@ -16,7 +16,9 @@ def create_jwt_token(data: dict):
 
 async def auth_user(email: EmailStr, password: str):
     user = await AuthDAO.find_one_or_none(email=email)
-    if not user and not check_password_hash(password, user.password):
+    if not user:
+        return None
+    if not check_password_hash(user.password, password):
         return None
     return user
 

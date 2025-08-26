@@ -6,7 +6,7 @@ from sqlalchemy import pool
 from alembic import context
 
 from Core.Models.Base import Base
-from Core.Models.manga import Mangas, Mangas1
+from Core.Models.manga import Mangas
 from Core.Models.review import Reviews
 from Core.Models.user import Users
 from Core.config import settings

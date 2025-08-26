@@ -16,4 +16,8 @@ engine = create_async_engine(
 async_session_maker = async_sessionmaker(engine)
 
 class Base(DeclarativeBase):
-    pass
+    
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}#{self.id}"
+        

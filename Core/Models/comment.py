@@ -20,10 +20,12 @@ class Comments(Base):
     __tablename__ = "comments"
 
     id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
-    manga_id: Mapped[int] = mapped_column(ForeignKey("mangas.id"))
-    review_id: Mapped[int] = mapped_column(ForeignKey("reviews.id"))
-    user: Mapped[str] = mapped_column(nullable=False)
+    manga_id: Mapped[int] = mapped_column(ForeignKey("mangas.id"), nullable=False)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
     description: Mapped[str] = mapped_column(nullable=False)
     likes: Mapped[int] = mapped_column(nullable=False)
     dislikes: Mapped[int] = mapped_column(nullable=False)
 
+    manga: Mapped["Mangas"] = relationship(back_populates="comment")
+    user: Mapped["Users"] = relationship(back_populates="comment")
+    

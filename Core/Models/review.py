@@ -29,6 +29,5 @@ class Reviews(Base):
     likes: Mapped[int] = mapped_column(nullable=False)
     dislikes: Mapped[int] = mapped_column(nullable=False)
 
-    comment: Mapped[List["Comments"]] = relationship(backref="review")
-
-
+    manga: Mapped["Mangas"] = relationship(back_populates="review")
+    user: Mapped["Users"] = relationship(back_populates="review")

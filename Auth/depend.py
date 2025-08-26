@@ -4,6 +4,9 @@ from Core.config import settings
 import jwt
 from jwt import ExpiredSignatureError, InvalidTokenError
 from Auth.exceptions import InvalidJWTTokenError, AlreadyExistsUser, IncorrectUserData
+from User.schemas import UserForProfile
+
+
 async def get_token(request: Request):
     token = request.cookies.get("acs_token")
     print(token)
