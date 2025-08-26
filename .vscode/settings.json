@@ -17,7 +17,7 @@
 
     // Запрашивать подтверждение на удаление и Drag&Drop
     "explorer.confirmDragAndDrop": true,
-    "explorer.confirmDelete": true,
+    "explorer.confirmDelete": false,
 
     // Настройка excalidraw по дефолту
     "excalidraw.workspaceLibraryPath": ".",

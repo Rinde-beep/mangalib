@@ -10,7 +10,6 @@ import io
 
 class MangaDAO(BaseDAO):
     model = Mangas
-
     @classmethod
     async def find_by_id(cls, id):
         async with async_session_maker() as ses:
