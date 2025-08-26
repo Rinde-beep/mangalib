@@ -7,8 +7,6 @@ class Review(BaseModel):
     description: str
     likes: int = 0
     dislikes: int = 0
-    
-    
 
 class ReviewAdd(BaseModel):
     description: str = Field(min_length=100)

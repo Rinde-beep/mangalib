@@ -55,5 +55,4 @@ admin.add_view(CommentAdmin)
 @app.get("/api/", tags=["Main"])
 @cache(expire=30)
 async def main_page():
-    await asyncio.sleep(3)
     return ""

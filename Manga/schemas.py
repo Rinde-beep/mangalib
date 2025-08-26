@@ -1,6 +1,12 @@
 from pydantic import BaseModel
 from enum import Enum
+from Review.schemas import Review
+from Comment.schemas import Comment
 from sqlalchemy import BLOB, JSON
+from Core.Models.lists import Lists
+from Core.Models.comment import Comments
+from Core.Models.review import Reviews
+from typing import Any
 class Status(Enum):
     finished = "издано"
     ongoing = "выходит"
@@ -20,7 +26,6 @@ class Manga(BaseModel):
     author: list[str] = []
     izdat: str | None = None
 
-
     rating_10: int | None = 0
     rating_9: int | None = 0
     rating_8: int | None = 0
@@ -31,6 +36,8 @@ class Manga(BaseModel):
     rating_3: int | None = 0
     rating_2: int | None = 0
     rating_1: int | None = 0
+
+    model_config = {"arbitrary_types_allowed": True}
 
 class List(BaseModel):
     id: int | None = None

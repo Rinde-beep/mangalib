@@ -5,6 +5,8 @@ from sqlalchemy.orm import selectinload, joinedload
 from Core.Models.manga import Mangas
 from sqlalchemy.exc import NoResultFound
 from Core.BaseDAO import BaseDAO
+from Review.schemas import Review
+from Comment.schemas import Comment
 from PIL import Image
 import io
 
@@ -47,28 +49,31 @@ class MangaDAO(BaseDAO):
                 manga = manga.scalars().first()
             except NoResultFound:
                 return None
-            return Manga(id=manga.id,
-                        name=manga.name,
-                        alternative_name=manga.alternative_name,
-                        description=manga.description,
-                        tags=manga.tags,
-                        rating=manga.rating,
-                        chapter_size=manga.chapter_size,
-                        volume_size=manga.volume_size,
-                        status=manga.status,
-                        time=manga.time,
-                        author=manga.author,
-                        izdat=manga.izdat,
-                        rating_10=manga.rating_10,
-                        rating_9=manga.rating_9,
-                        rating_8=manga.rating_8,
-                        rating_7=manga.rating_7,
-                        rating_6=manga.rating_6,
-                        rating_5=manga.rating_5,
-                        rating_4=manga.rating_4,
-                        rating_3=manga.rating_3,
-                        rating_2=manga.rating_2,
-                        rating_1=manga.rating_1,), manga.review, manga.comment, manga.list
+            return {"id":manga.id,
+                        "name":manga.name,
+                        "alternative_name":manga.alternative_name,
+                        "description":manga.description,
+                        "tags":manga.tags,
+                        "rating":manga.rating,
+                        "chapter_size":manga.chapter_size,
+                        "volume_size":manga.volume_size,
+                        "status":manga.status,
+                        "time":manga.time,
+                        "author":manga.author,
+                        "izdat":manga.izdat,
+                        "rating_10":manga.rating_10,
+                        "rating_9":manga.rating_9,
+                        "rating_8":manga.rating_8,
+                        "rating_7":manga.rating_7,
+                        "rating_6":manga.rating_6,
+                        "rating_5":manga.rating_5,
+                        "rating_4":manga.rating_4,
+                        "rating_3":manga.rating_3,
+                        "rating_2":manga.rating_2,
+                        "rating_1":manga.rating_1,
+                        "reviews": manga.review, 
+                        "comments": manga.comment,
+                        "list": manga.list}
 
     
     
