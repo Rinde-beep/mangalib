@@ -21,13 +21,41 @@ class CatalogDAO(BaseDAO):
             else:
                 order_by = m.Mangas.id
 
-            query = select(m.Mangas).offset(page * 12).limit(12).where(and_((and_(m.Mangas.tags.contains(x) for x in genre_in)) if genre_in else True), ((not_(and_(m.Mangas.tags.contains(x) for x in genre_ex))) if genre_ex else True)).order_by(order_by if desc == False else order_by.desc())
+            query = select(m.Mangas.id, 
+                           m.Mangas.alternative_name, 
+                           m.Mangas.name, 
+                           m.Mangas.author, 
+                           m.Mangas.volume_size,
+                           m.Mangas.chapter_size,
+                           m.Mangas.description, 
+                           m.Mangas.izdat,
+                           m.Mangas.rating,
+                           m.Mangas.rating_1, 
+                           m.Mangas.rating_2, 
+                           m.Mangas.rating_3, 
+                           m.Mangas.rating_4, 
+                           m.Mangas.rating_5, 
+                           m.Mangas.rating_6,
+                           m.Mangas.rating_7, 
+                           m.Mangas.rating_8,
+                           m.Mangas.rating_9,
+                           m.Mangas.rating_10,
+                           m.Mangas.status,
+                           m.Mangas.tags,
+                           m.Mangas.time ).offset(
+                page * 12
+                ).limit(
+                    12
+                    ).where(
+                        and_(
+                            (and_(
+                                m.Mangas.tags.contains([x]) for x in genre_in
+                                )) if genre_in else True)
+                                , ((not_(and_(m.Mangas.tags.contains([x]) for x in genre_ex))) 
+                                   if genre_ex else True)).order_by(
+                                       order_by if desc == False else order_by.desc())
             res = await ses.execute(query)
-            result = res.scalars().all()
-            for i in result:
-                image_data = i.picture
-                
-                i.picture = base64.b64encode(image_data).decode("utf-8")
+            result = res.mappings().all()
             return result
 
 
