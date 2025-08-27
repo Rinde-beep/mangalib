@@ -3,6 +3,8 @@ from sqlalchemy import insert, select
 from sqlalchemy.exc import NoResultFound
 class BaseDAO():
     model = None
+
+    
     
     @classmethod
     async def find_by_id(cls, id: int):

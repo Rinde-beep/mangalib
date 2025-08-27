@@ -37,7 +37,6 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
 
-names_all = []
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from Models.Base import async_session_maker
 import re
@@ -73,6 +72,8 @@ class MangaAdd(BaseModel):
 
     model_config = {"extra": "forbid"}
 
+    
+
 
 async def pars(i):
     
@@ -81,6 +82,11 @@ async def pars(i):
     genre_3 = []
     genre_4 = []
     genre_5 = []
+
+
+
+    
+
     async with aiohttp.ClientSession() as ses:
         
         #url getting
@@ -285,13 +291,15 @@ async def pars(i):
             
 
 async def validate():
-    for i in range(1, 500000):
+    from Manga.crud import MangaDAO
+    idies = await MangaDAO.names_all()
+    print(idies)
+    for i in idies:
         try:
             manga_ = await pars(i)
             
             if manga_:
                 manga_1 = MangaAdd(**manga_)
-                print(manga_1.picture)
                 print(f"Имя - {manga_1.name}")
                 print(f"Русское имя - {manga_1.alternative_name}")
                 print(f"Жанры - {manga_1.tags}")

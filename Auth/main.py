@@ -4,7 +4,7 @@ from User.schemas import User, UserReg
 from Auth.crud import AuthDAO
 from werkzeug.security import generate_password_hash, check_password_hash
 from Auth.jwt_token import auth_user, create_jwt_token
-from Auth.exceptions import IncorrectUserData
+from Auth.exceptions import IncorrectUserData, AlreadyExistsUser
 
 
 router = APIRouter(prefix="/api/auth", tags=["Auth"])
@@ -16,7 +16,7 @@ async def reg_user(user: UserReg):
     password = generate_password_hash(user.password)
     user = await AuthDAO.find_one_or_none(email=email)
     if user:
-        raise IncorrectUserData
+        raise AlreadyExistsUser
     await AuthDAO.insert_data(email=email, password=password)
 
 @router.post("/login")

@@ -8,7 +8,6 @@ class Status(Enum):
 
 class Manga(BaseModel):
     id: int | None = None
-    preview_picture_id: str | None = None
     name: str
     alternative_name: str
     description: str | None
@@ -17,6 +16,21 @@ class Manga(BaseModel):
     chapter_size: int | None
     volume_size: int | None
     status: Status | None
+    time: str | None = None
+    author: list[str] = []
+    izdat: str | None = None
+
+
+    rating_10: int | None = 0
+    rating_9: int | None = 0
+    rating_8: int | None = 0
+    rating_7: int | None = 0
+    rating_6: int | None = 0
+    rating_5: int | None = 0
+    rating_4: int | None = 0
+    rating_3: int | None = 0
+    rating_2: int | None = 0
+    rating_1: int | None = 0
 
 class List(BaseModel):
     id: int | None = None
@@ -29,21 +43,7 @@ class List(BaseModel):
     dropped : int | None = 0
 
 
-class Rating(BaseModel):
-    total_rating: int | None = 0
-    rating_10: int | None = 0
-    rating_9: int | None = 0
-    rating_8: int | None = 0
-    rating_7: int | None = 0
-    rating_6: int | None = 0
-    rating_5: int | None = 0
-    rating_4: int | None = 0
-    rating_3: int | None = 0
-    rating_2: int | None = 0
-    rating_1: int | None = 0
-
 class MangaAdd(BaseModel):
-    picture: bytes | None = None
     name: str
     alternative_name: str
     description: str | None
@@ -52,6 +52,9 @@ class MangaAdd(BaseModel):
     chapter_size: int | None
     volume_size: int | None
     status: Status | None
+    time: str | None = None
+    author: list[str] = []
+    izdat: str | None = None
 
     model_config = {"extra": "forbid"}
 

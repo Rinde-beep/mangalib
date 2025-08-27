@@ -2,7 +2,8 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from Core.Models.Base import Base
-from sqlalchemy import Column, Integer, String, ForeignKey, ARRAY
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 from pydantic import EmailStr
 import Core.Models.manga as m
@@ -26,4 +27,9 @@ class Users(Base):
     password: Mapped[str] = mapped_column(nullable=False)
     email: Mapped[str] = mapped_column(nullable=False)
     lvl: Mapped[int] = mapped_column(nullable=False, default=0)
-    bookmarks: Mapped[list[int]] = mapped_column(ARRAY(Integer), nullable=False, default="")
+    bookmarks: Mapped[list[m.Mangas]] = mapped_column(ARRAY(Integer), nullable=False)
+
+    review: Mapped[List["Reviews"]] = relationship(back_populates="user")
+    comment: Mapped[List["Comments"]] = relationship(back_populates="user")   
+
+ 

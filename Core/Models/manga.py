@@ -3,11 +3,11 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from Core.Models.Base import Base
-from sqlalchemy import Column, String, LargeBinary, Float, ARRAY, func, text
+from sqlalchemy import Column, String, LargeBinary, Float, func, text
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 from sqlalchemy.dialects.postgresql import ARRAY
 from typing import List, TYPE_CHECKING
-
+from sqlalchemy.dialects.postgresql import ARRAY
 from enum import Enum
 from datetime import datetime
 
@@ -21,6 +21,7 @@ if TYPE_CHECKING:
 class Mangas(Base):
 
     __tablename__ = "mangas"
+    __table_args__ = {'extend_existing': True}
 
     id: Mapped[int] = mapped_column(primary_key=True)
     picture: Mapped[bytes] = mapped_column(LargeBinary)
@@ -49,8 +50,13 @@ class Mangas(Base):
 
 
 
-    list: Mapped["Lists"] = relationship(backref="manga")
+    list: Mapped["Lists"] = relationship(back_populates="manga")
     
-    comment: Mapped[List["Comments"]] = relationship(backref="manga")
+    comment: Mapped[List["Comments"]] = relationship(back_populates="manga")
 
-    review: Mapped[List["Reviews"]] = relationship(backref="manga")
+    review: Mapped[List["Reviews"]] = relationship(back_populates="manga")
+
+    
+
+
+

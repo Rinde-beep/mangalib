@@ -1,4 +1,6 @@
-from Review.schemas import Review
+from Core.BaseDAO import BaseDAO
+from Core.Models.review import Reviews
 
-def create_review(review:Review):
-    pass
+class ReviewDAO(BaseDAO):
+    model = Reviews
+    
