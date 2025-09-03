@@ -50,11 +50,11 @@ class Mangas(Base):
 
 
 
-    list: Mapped["Lists"] = relationship(back_populates="manga")
+    # list: Mapped["Lists"] = relationship(back_populates="manga")
     
-    comment: Mapped[List["Comments"]] = relationship(back_populates="manga")
+    comment: Mapped[List["Comments"]] = relationship(back_populates="manga", lazy="selectin")
 
-    review: Mapped[List["Reviews"]] = relationship(back_populates="manga")
+    review: Mapped[List["Reviews"]] = relationship(back_populates="manga", lazy="selectin")
 
     
 

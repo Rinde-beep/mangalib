@@ -14,11 +14,11 @@ async def all_users():
 
 @router.get("/profile")
 @cache(expire=30)
-async def user_profile(user = Depends(get_user)):
-    return UserForProfile(login=user.login, lvl=user.lvl, bookmarks=user.bookmarks, email=user.email)
+async def user_profile(user = Depends(get_user)) -> UserForProfile:
+    return user
 
 @router.post("/change/login")
-async def change_login(user_data: UserLogin, user = Depends(get_user)):
+async def change_login(user_data: UserLogin, user = Depends(get_user)) -> dict:
     if user_data.login == user.login:
         raise HTTPException(status_code=409)
     if check_password_hash(user.password, user_data.password):

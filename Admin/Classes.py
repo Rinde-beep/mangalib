@@ -23,7 +23,9 @@ class MangaAdmin(ModelView, model=Mangas):
                 Mangas.status,
                 Mangas.time,
                 Mangas.author,
-                Mangas.izdat, Mangas.review, Mangas.comment, Mangas.list]
+                Mangas.izdat, 
+                Mangas.review, 
+                Mangas.comment]
     name = "Manga"
     name_plural = "Mangas"
 

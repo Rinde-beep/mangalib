@@ -19,5 +19,5 @@ class Base(DeclarativeBase):
     
 
     def __repr__(self):
-        return f"{self.__class__.__name__}#{self.id}"
+        return f"{self.__class__.__name__}#{self.id}, {self.description}"
         

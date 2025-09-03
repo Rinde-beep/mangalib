@@ -15,6 +15,10 @@ class InvalidJWTTokenError(AuthExceptions):
     status_code=status.HTTP_401_UNAUTHORIZED
     detail="Не валидный jwt-токен"
 
+class ExpiredJWTTokenError(AuthExceptions):
+    status_code=status.HTTP_401_UNAUTHORIZED
+    detail="Просроченный jwt-токен"
+
 class IncorrectUserData(AuthExceptions):
     status_code=status.HTTP_401_UNAUTHORIZED
     detail="Неправильные данные пользователя"
@@ -22,6 +26,10 @@ class IncorrectUserData(AuthExceptions):
 class AlreadyExistsUser(AuthExceptions):
     status_code=status.HTTP_409_CONFLICT
     detail="Данный пользователь уже имеется"
+
+class NotExistsUser(AuthExceptions):
+    status_code=status.HTTP_404_NOT_FOUND
+    detail="Данного пользователя не существует"
 
 
 
