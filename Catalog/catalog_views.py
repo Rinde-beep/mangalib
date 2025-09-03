@@ -7,6 +7,7 @@ from fastapi.responses import StreamingResponse, Response
 from PIL import Image
 import io
 from Manga.schemas import Manga
+from Catalog.schemas import MangaCatalog
 
 router = APIRouter(prefix="/api/catalog", tags=["Catalog"])
 
@@ -18,7 +19,7 @@ async def catalog(page: int = 0,
             genres_exclude: Annotated[list[str] | str, Query()] = None,
             order: Annotated[Order, Query()] | None = None,
             desc: bool | None = False
-            ) -> list[Manga]:
+            ) -> list[MangaCatalog]:
     res = await CatalogDAO.see_catalog(page, genres_include, genres_exclude, order, desc)
     
     return res

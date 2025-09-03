@@ -24,26 +24,9 @@ class CatalogDAO(BaseDAO):
             query = select(m.Mangas.id, 
                            m.Mangas.alternative_name, 
                            m.Mangas.name, 
-                           m.Mangas.author, 
-                           m.Mangas.volume_size,
-                           m.Mangas.chapter_size,
-                           m.Mangas.description, 
-                           m.Mangas.izdat,
-                           m.Mangas.rating,
-                           m.Mangas.rating_1, 
-                           m.Mangas.rating_2, 
-                           m.Mangas.rating_3, 
-                           m.Mangas.rating_4, 
-                           m.Mangas.rating_5, 
-                           m.Mangas.rating_6,
-                           m.Mangas.rating_7, 
-                           m.Mangas.rating_8,
-                           m.Mangas.rating_9,
-                           m.Mangas.rating_10,
-                           m.Mangas.status,
-                           m.Mangas.tags,
-                           m.Mangas.time ).offset(
-                page * 12
+                           m.Mangas.rating
+                           ).offset(
+                page * 10
                 ).limit(
                     12
                     ).where(

@@ -34,7 +34,10 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
-    CORSMiddleware, allow_origins=['*']
+    CORSMiddleware, allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 app.include_router(auth_router)
 app.include_router(catalog_router)
@@ -55,5 +58,4 @@ admin.add_view(CommentAdmin)
 @app.get("/api/", tags=["Main"])
 @cache(expire=30)
 async def main_page():
-    await asyncio.sleep(3)
     return ""
