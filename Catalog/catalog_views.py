@@ -21,6 +21,7 @@ async def catalog(page: int = 0,
             desc: bool | None = False
             ) -> list[MangaCatalog]:
     res = await CatalogDAO.see_catalog(page, genres_include, genres_exclude, order, desc)
+    
     return res
 
 

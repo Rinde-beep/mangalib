@@ -3,8 +3,8 @@ import sys
 
 import aiohttp
 from LxmlSoup import LxmlSoup
-import aiohttp.client_exceptions
-from sqlalchemy import select, LargeBinary
+# from Core.Models.manga import Mangas
+from sqlalchemy import select
 import asyncio
 import requests
 import time

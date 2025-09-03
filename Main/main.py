@@ -14,16 +14,12 @@ from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
 
 from redis import asyncio as aioredis
-import asyncio
 
 from Core.Models.Base import engine
 from sqladmin import Admin
 
 from Admin.Classes import UserAdmin, MangaAdmin, ReviewAdmin, CommentAdmin
 
-from Core.Models.Base import async_session_maker
-from sqlalchemy import select
-from Core.Models.manga import Mangas
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -34,7 +30,10 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
-    CORSMiddleware, allow_origins=['*']
+    CORSMiddleware, allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 app.include_router(auth_router)
 app.include_router(catalog_router)

@@ -5,6 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from Core.Models.Base import Base
 from sqlalchemy import Column, String, LargeBinary, Float, func, text
 from sqlalchemy.orm import mapped_column, Mapped, relationship
+from sqlalchemy.dialects.postgresql import ARRAY
 from typing import List, TYPE_CHECKING
 from sqlalchemy.dialects.postgresql import ARRAY
 from enum import Enum

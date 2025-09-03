@@ -27,7 +27,7 @@ class Users(Base):
     password: Mapped[str] = mapped_column(nullable=False)
     email: Mapped[str] = mapped_column(nullable=False)
     lvl: Mapped[int] = mapped_column(nullable=False, default=0)
-    bookmarks: Mapped[list[m.Mangas]] = mapped_column(ARRAY(Integer), nullable=False)
+    bookmarks: Mapped[list[m.Mangas]] = mapped_column(ARRAY(Integer))
 
     review: Mapped[List["Reviews"]] = relationship(back_populates="user")
     comment: Mapped[List["Comments"]] = relationship(back_populates="user")   

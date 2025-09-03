@@ -28,7 +28,7 @@ class CatalogDAO(BaseDAO):
                            ).offset(
                 page * 10
                 ).limit(
-                    3
+                    12
                     ).where(
                         and_(
                             (and_(
