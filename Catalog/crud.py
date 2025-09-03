@@ -10,7 +10,7 @@ class CatalogDAO(BaseDAO):
     model = m.Mangas
 
     @classmethod
-    async def see_catalog(cls, page: int, genre_in: list[str] | str, genre_ex: list[str] | str, order: str, desc: bool | None = False) -> list[m.Mangas]:
+    async def see_catalog(cls, page: int, genre_in: list[str] | str, genre_ex: list[str] | str, order: str, desc: bool | None = False):
         async with async_session_maker() as ses:
             if order == "rating":
                 order_by = m.Mangas.rating

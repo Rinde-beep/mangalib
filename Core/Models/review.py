@@ -30,4 +30,4 @@ class Reviews(Base):
     dislikes: Mapped[int] = mapped_column(nullable=False)
 
     manga: Mapped["Mangas"] = relationship(back_populates="review")
-    user: Mapped["Users"] = relationship(back_populates="review")
+    user: Mapped["Users"] = relationship(back_populates="review", lazy="joined")

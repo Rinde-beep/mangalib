@@ -1,5 +1,6 @@
 
 import datetime
+from Auth.exceptions import IncorrectUserData, NotExistsUser
 from User.schemas import UserReg
 from Core.config import settings
 from pydantic import EmailStr
@@ -17,9 +18,9 @@ def create_jwt_token(data: dict):
 async def auth_user(email: EmailStr, password: str):
     user = await AuthDAO.find_one_or_none(email=email)
     if not user:
-        return None
+        raise NotExistsUser
     if not check_password_hash(user.password, password):
-        return None
+        raise IncorrectUserData
     return user
 
 
