@@ -1,0 +1,638 @@
+
+.main {
+  font-family: "TTFirsNeue", "sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--color-black);
+}
+
+.text {
+  margin: 0;
+}
+
+.second-title {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.96px;
+}
+
+.hero {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.hero__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(343px, 1fr) minmax(257px, 1fr);
+  grid-gap: 30px;
+}
+
+.hero__title {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37.44px;
+}
+
+.hero__descr {
+  display: inline-block;
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+}
+
+.hero__article {
+  position: relative;
+}
+
+.hero__grid2 {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 30px;
+}
+
+.hero__gridarticle {
+  display: flex;
+  flex-direction: column;
+  /* grid-template-rows: 3fr 1fr; */
+  /* grid-template-rows: 380px 100px 100px; */
+  grid-gap: 30px;
+}
+
+.hero__ratingbigstars {
+  margin-bottom: 10px;
+}
+
+/*СТАТЫЫЫЫЫЫЫ*/
+
+
+/* .boxes {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+} */
+.hero__statstitle {
+  /* font-weight: ; */
+  font-size: 16px;
+}
+
+.hero__statscont {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column: 1/3;
+  font-size: 13px;
+
+}
+
+.hero__statstop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* font-size: 15px; */
+  /* color: #555; */
+}
+
+.hero__rating {
+  font-weight: 600;
+  /* color: #333; */
+}
+
+.hero__rating span:first-child {
+  color: var(--color-darkorange);
+}
+
+
+.hero__statsfoot {
+  display: flex;
+  justify-content: space-between;
+  /* font-size: 13px;
+  color: #777; */
+  border-top: 1px solid var(--color-darkwhite);
+}
+
+/*СТАТЫ С ДРУГОЙ СТОРОНЫЫЫ*/
+.rating-row {
+  /* display: flex; */
+  /* align-items: center; */
+  /* margin-bottom: 8px; */
+  /* font-size: 13px; */
+}
+
+.hero__ratingstars {
+  width: 35px;
+  /* color: #666; */
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+
+.hero__ratingprogress {
+  flex-grow: 1;
+  height: 13px;
+  background: var(--color-darkwhite);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 5px;
+  position: relative;
+}
+
+.hero__ratingfill {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.hero__ratingfill.ten {
+  background: #4CAF50;
+}
+
+.hero__ratingfill.nine {
+  background: #8BC34A;
+}
+
+.hero__ratingfill.eight {
+  background: #9cd12d;
+}
+
+.hero__ratingfill.seven {
+  background: #b7d22d;
+}
+
+.hero__ratingfill.six {
+  background: #d2d22e;
+}
+
+.hero__ratingfill.five {
+  background: #d3b72c;
+}
+
+.hero__ratingfill.four {
+  background: #d29b2c;
+}
+
+.hero__ratingfill.three {
+  background: #d2802e;
+}
+
+.hero__ratingfill.two {
+  background: #d2642d;
+}
+
+.hero__ratingfill.one {
+  background: #d2482d;
+}
+
+.hero__ratingcount {
+  width: 30px;
+  text-align: right;
+  /* color: #666; */
+}
+
+/* Стили для списков */
+.hero__statsrow {
+  display: flex;
+  align-items: center;
+  /* font-size: 13px; */
+}
+
+.hero__listname {
+  width: 80px;
+  /* color: #666; */
+}
+
+.hero__listprogress {
+  flex-grow: 1;
+  height: 13px;
+  background: var(--color-darkwhite);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 5px;
+}
+
+.hero__listfill {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.hero__listcount {
+  width: 45px;
+  text-align: right;
+  /* color: #666; */
+}
+
+/* Цвета для разных списков */
+.hero__listfill.reading {
+  background: #3498db;
+}
+
+.hero__listfill.planned {
+  background: #9b59b6;
+}
+
+.hero__listfill.on-hold {
+  background: #f39c12;
+}
+
+.hero__listfill.dropped {
+  background: #e74c3c;
+}
+
+.hero__listfill.completed {
+  background: #2ecc71;
+}
+
+.hero__listfill.favorite {
+  background: #e84393;
+}
+
+
+
+
+
+.hero__list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  /* grid-template-rows: 300px 300px 257px; */
+  grid-gap: 25px;
+}
+
+.hero__item--descr {
+  grid-column: 1/3;
+}
+
+.hero__item:last-child {
+  grid-column: 1/3;
+}
+
+
+
+/*ОЦЕНИТЬЬЬ*/
+
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-stars {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+  color: #ccc;
+  white-space: nowrap;
+}
+
+.rating-stars::before {
+  content: "★★★★★";
+}
+
+.rating-stars .stars-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  color: #ffc107;
+  white-space: nowrap;
+}
+
+.rating-stars .stars-active::before {
+  content: "★★★★★";
+}
+
+.rating-stars .stars-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  color: #ffdb70;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.rating-stars .stars-hover::before {
+  content: "★★★★★";
+}
+
+.rating-value {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.rating-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.star-area {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.star-area.half {
+  width: 10%;
+}
+
+.star-area.full {
+  width: 10%;
+}
+
+.star-area:nth-child(3) {
+  left: 0;
+}
+
+.star-area:nth-child(4) {
+  left: 10%;
+}
+
+.star-area:nth-child(5) {
+  left: 20%;
+}
+
+.star-area:nth-child(6) {
+  left: 30%;
+}
+
+.star-area:nth-child(7) {
+  left: 40%;
+}
+
+.star-area:nth-child(8) {
+  left: 50%;
+}
+
+.star-area:nth-child(9) {
+  left: 60%;
+}
+
+.star-area:nth-child(10) {
+  left: 70%;
+}
+
+.star-area:nth-child(11) {
+  left: 80%;
+}
+
+.star-area:nth-child(12) {
+  left: 90%;
+}
+
+.star-area:nth-child(13) {
+  left: 100%;
+}
+
+
+
+
+/*ДОБАВИТЬ В СПИСОКК*/
+
+.list-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.list-dropdown__toggle {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+}
+
+.list-dropdown__toggle:hover {
+  background: #e5e5e5;
+}
+
+.list-dropdown__status {
+  margin-right: 8px;
+}
+
+.list-dropdown__arrow {
+  font-size: 10px;
+}
+
+.list-dropdown__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 100;
+  display: none;
+  margin-top: 5px;
+}
+
+.list-dropdown__menu--visible {
+  display: block;
+}
+
+
+.list-dropdown__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.list-dropdown__item {
+  padding: 4px 8px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.list-dropdown__item:hover {
+  background: #f5f5f5;
+}
+
+.list-dropdown__item--remove {
+  color: #e74c3c;
+  border-top: 1px solid #eee;
+}
+
+.list-dropdown__item--remove:hover {
+  background: #fdeaea;
+}
+
+.list-dropdown__item-checkmark {
+  color: #27ae60;
+  display: none;
+}
+
+.list-dropdown__item--active .list-dropdown__item-checkmark {
+  display: inline;
+}
+
+
+
+
+/*ЭТО СКРОЛЛЛЛЛЛ ПОХОЖЕГОО*/
+.similar .container {
+  position: relative;
+}
+
+.similar__mangacontainer {
+  position: relative;
+  padding: 0 30px;
+}
+
+.similar__mangascroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Для Firefox */
+}
+
+.similar__mangascroll::-webkit-scrollbar {
+  display: none;
+  /* Для Chrome/Safari */
+}
+
+/* Стили карточек похожей манги */
+.similar__mangaitem {
+  /* flex: 0 0 160px; */
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.similar__mangaitem:hover {
+  transform: translateY(-5px);
+}
+
+.similar__mangacover {
+  width: 160px;
+  height: 220px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  /* position: relative; */
+}
+
+.similar__mangacover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.similar__mangaitem:hover .similar__mangacover img {
+  transform: scale(1.05);
+}
+
+.similar__mangatitle {
+  /* margin-top: 8px; */
+  /* font-size: 14px; */
+  /* font-weight: 500; */
+  /* color: #333; */
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+
+/* Кнопки навигации */
+.similar__scrollbtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.similar__mangacontainer:hover .similar__scrollbtn {
+  opacity: 1;
+}
+
+.scroll-left {
+  left: 5px;
+}
+
+.scroll-right {
+  right: 5px;
+}
+
+@media (max-width: 768px) {
+  .similar__mangaitem {
+    flex: 0 0 120px;
+  }
+
+  .similar__mangacover {
+    width: 120px;
+    height: 170px;
+  }
+
+  .similar__scrollbtn {
+    display: none;
+  }
+}
+
+
+
+
+/* ЗВЕЗДОЧКИ КАПЕЦ */
+
+
+.hero__ratingscore {
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 40px;
+  color: #ccc;
+  position: relative;
+  letter-spacing: 5px;
+  padding-left: 5px;
+}
+
+.hero__ratingscore::before,
+.hero__ratingscore span::before {
+  content: "★★★★★";
+  display: block;
+}
+
+.hero__ratingscore span {
+  color: #E6DB74;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding-left: 5px;
+}

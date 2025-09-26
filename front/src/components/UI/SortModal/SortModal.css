@@ -1,0 +1,147 @@
+/* Общие стили для модальных окон */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.filter-modal, .sort-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--color-lightgray);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-gray);
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: var(--color-black);
+}
+
+.modal-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 20px;
+  border-top: 1px solid var(--color-lightgray);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.catalog__sortbtns {
+  display: flex;
+  gap: 10px;
+}
+
+ .catalog__btns {
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+
+/* .catalog__btns:hover:not(:disabled) {
+  background: var(--color-darkorange);
+} */
+
+.catalog__btns:disabled {
+  background: var(--color-darkwhite);
+  cursor: not-allowed;
+}
+
+.catalog__btns {
+  background: none;
+  border: 1px solid var(--color-lightgray);
+  color: var(--color-black);
+}
+
+.catalog__btns:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+/* Стили для FilterModal */
+
+
+/* Стили для SortModal */
+.sort-options {
+  margin-bottom: 30px;
+}
+
+.sort-option, .order-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-option:hover, .order-option:hover {
+  border-color: var(--color-orange);
+  background: #fff5f5;
+}
+
+.sort-option input[type="radio"], 
+.order-option input[type="radio"] {
+  margin: 0;
+}
+
+.order-options {
+  display: flex;
+  gap: 15px;
+}
+
+.order-option {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+}

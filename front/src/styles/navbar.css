@@ -1,0 +1,103 @@
+/* .navbar {
+    height: 50px;
+    width: 100vw;
+    
+    background: lightgray;
+} */
+
+/* .navbar__container {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.navbar__links {
+    margin-left: auto;
+} */
+
+.navbar {
+  font-family: "TTFirsNeue", "sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.64px;
+  text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.navbar__svg {
+  fill: #FFFFFF;
+  transition: fill 0.2s ease-in-out;
+}
+.navbar__btn:hover .header__svg {
+  fill: #FF6E30;
+}
+
+.navbar__btn:focus-visible .header__svg {
+  fill: #BC572B;
+}
+
+.navbar__btn:active .header__svg {
+  fill: #CE4307;
+}
+
+.nav {
+  /* margin-right: 187px; */
+}
+.header__logs {
+  display: flex;
+  gap: 20px;
+}
+
+.nav__list, 
+.navbar__auth {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.nav__link,
+.sign_in,
+.sign_up {
+  padding-left: 5px;
+  padding-right: 5px;
+  outline: none;
+  color: var(--color-white);
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.nav__link:hover {
+  color: var(--color-orange);
+}
+
+.nav__link:focus-visible{
+  background-color: var(--color-darkorange);
+  color: var(--color-white);
+}
+
+.nav__link:active {
+  color: var(--color-darkorange);
+}
+
+.nav__hiddsvg {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.logo {
+  /* margin-right: auto; */
+  outline: none;
+  transition: outline 0.2s ease-in-out;
+}
